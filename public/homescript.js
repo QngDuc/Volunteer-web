@@ -1,3 +1,4 @@
+import emailjs from 'emailjs-com';
 document.addEventListener('DOMContentLoaded', function() {
     // Xử lý đăng xuất
     const logoutBtn = document.getElementById('logoutBtn');
