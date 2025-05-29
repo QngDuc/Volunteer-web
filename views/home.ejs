@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A4U - ALL FOR YOU | Trang Chủ</title>
+    <link rel="stylesheet" href="/homestyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/home" class="logo">
+                <i class="fas fa-heart"></i> A4U - ALL FOR YOU
+            </a>
+            <ul class="nav-links">
+                <li><a href="#campaigns">Chiến Dịch</a></li>
+                <li><a href="#events">Sự Kiện</a></li>
+                <li><a href="#points-system">Thành Tựu</a></li>
+                <li><a href="#contact">Liên Hệ</a></li>
+                <li class="user-menu">
+                    <a href="#" class="user-profile">                        <i class="fas fa-user-circle"></i>
+                        <span class="username">Xin chào, <%= username %></span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="#"><i class="fas fa-user"></i> Thông tin cá nhân</a>
+                        <a href="#points-system"><i class="fas fa-star"></i> Điểm tích lũy</a>
+                        <a href="#"><i class="fas fa-history"></i> Lịch sử hoạt động</a>
+                        <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">                <div class="welcome-message">
+                    <h1>Chào mừng trở lại, <%= username %>!</h1>
+                    <p>Hãy cùng lan tỏa yêu thương và tạo nên những giá trị tốt đẹp cho cộng đồng.</p>
+                </div>
+                <div class="user-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-calendar-check"></i>
+                        <h3>Hoạt động tham gia</h3>
+                        <p class="stat-number">5</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-star"></i>
+                        <h3>Điểm tích lũy</h3>
+                        <p class="stat-number">850</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Giờ thiện nguyện</h3>
+                        <p class="stat-number">24</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="campaigns" class="section">
+        <div class="container">
+            <h2 class="section-title">Chiến Dịch Đang Diễn Ra</h2>
+            <div class="campaigns-grid">
+                <div class="campaign-card">
+                    <div class="campaign-status active">Đang diễn ra</div>
+                    <img src="https://athenagroup.edu.vn/wp-content/uploads/2024/01/1.jpg" alt="Xuân Yêu Thương">
+                    <div class="campaign-content">
+                        <h3>Xuân Yêu Thương</h3>
+                        <p>Mang tết đến cho những hoàn cảnh khó khăn</p>
+                        <div class="campaign-progress">
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 75%"></div>
+                            </div>
+                            <span>75% mục tiêu đạt được</span>
+                        </div>
+                        <a href="#" class="btn btn-primary">Tham Gia Ngay</a>
+                    </div>
+                </div>
+                <!-- Thêm các campaign khác -->
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="section">
+        <div class="container">
+            <h2 class="section-title">Sự Kiện Sắp Tới</h2>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="day">30</span>
+                        <span class="month">Tháng 5</span>
+                    </div>
+                    <div class="event-content">
+                        <img src="https://th.bing.com/th/id/OIP.NLRnvg4EsHNKKQV5TB_mcgHaEK?cb=iwc2&rs=1&pid=ImgDetMain" alt="Hiến máu">
+                        <h3>Ngày Hội Hiến Máu Nhân Đạo</h3>
+                        <p class="event-location"><i class="fas fa-map-marker-alt"></i> Đại học Cần Thơ</p>
+                        <p class="event-time"><i class="far fa-clock"></i> 08:00 - 17:00</p>
+                        <button class="btn btn-primary register-event">Đăng Ký Tham Gia</button>
+                    </div>
+                </div>
+                <!-- Thêm các sự kiện khác -->
+            </div>
+        </div>
+    </section>
+
+        <section id="points-system" class="section points-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Hệ Thống Điểm & Đổi Thưởng</h2>
+                    <p>Những đóng góp của bạn sẽ được ghi nhận xứng đáng</p>
+                </div>
+                <div class="points-grid">
+                    <div class="points-card">
+                        <div class="points-circle">
+                            <span id="userPoints">850</span>
+                            <span class="points-label">Điểm</span>
+                        </div>
+                        <h3>Cấp độ: <span id="userLevel">Tình Nguyện Viên Tích Cực</span></h3>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="rewards-card">
+                        <h3>Phần Thưởng Khả Dụng</h3>
+                        <ul class="rewards-list">
+                            <li>
+                                <div class="reward-info">
+                                    <img src="https://img.icons8.com/color/48/000000/medal2.png" alt="Huy hiệu">
+                                    <div class="reward-details">
+                                        <span class="reward-name">Huy Hiệu Tình Nguyện Viên Bạc</span>
+                                        <span class="reward-description">Huy hiệu danh dự cho tình nguyện viên tích cực</span>
+                                        <div class="reward-progress">
+                                            <div class="progress-text">
+                                                <span class="points-needed">500 điểm</span>
+                                                <span class="points-have">Bạn có: 850 điểm</span>
+                                            </div>
+                                            <div class="progress-bar">
+                                                <div class="progress" style="width: 100%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-redeem" onclick="redeemReward(this, 500)">Đổi Ngay</button>
+                            </li>
+                            <li>
+                                <div class="reward-info">
+                                    <img src="https://img.icons8.com/color/48/000000/t-shirt.png" alt="Áo">
+                                    <div class="reward-details">
+                                        <span class="reward-name">Áo Đồng Phục A4U</span>
+                                        <span class="reward-description">Áo đồng phục chính thức của A4U</span>
+                                        <div class="reward-progress">
+                                            <div class="progress-text">
+                                                <span class="points-needed">750 điểm</span>
+                                                <span class="points-have">Bạn có: 850 điểm</span>
+                                            </div>
+                                            <div class="progress-bar">
+                                                <div class="progress" style="width: 100%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-redeem" onclick="redeemReward(this, 750)">Đổi Ngay</button>
+                            </li>
+                            <li>
+                                <div class="reward-info">
+                                    <img src="https://img.icons8.com/color/48/000000/certificate.png" alt="Chứng nhận">
+                                    <div class="reward-details">
+                                        <span class="reward-name">Chứng Nhận Đóng Góp</span>
+                                        <span class="reward-description">Chứng nhận chính thức từ A4U</span>
+                                        <div class="reward-progress">
+                                            <div class="progress-text">
+                                                <span class="points-needed">1000 điểm</span>
+                                                <span class="points-have">Bạn có: 850 điểm</span>
+                                            </div>
+                                            <div class="progress-bar">
+                                                <div class="progress" style="width: 85%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-redeem" onclick="redeemReward(this, 1000)" disabled>Chưa đủ điểm</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col about">
+                    <h4>A4U - ALL FOR YOU</h4>
+                    <p>Nền tảng thiện nguyện minh bạch kết nối những tấm lòng nhân ái.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/TeamA4U"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Liên Hệ</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Đường 3/2, Q.Ninh Kiều, TP.Cần Thơ</p>
+                    <p><i class="fas fa-phone"></i> 0389.502.764</p>
+                    <p><i class="fas fa-envelope"></i> info@a4u.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025-2026 A4U - ALL FOR YOU. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+    <button class="simulate-btn" onclick="simulateActivity()">
+        <i class="fas fa-play-circle"></i>
+        Mô Phỏng Hoạt Động
+    </button>
+
+    <script src="/homescript.js"></script>
+</body>
+</html>

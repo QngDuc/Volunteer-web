@@ -1,0 +1,382 @@
+<head>    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/aboutstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>A4U - Về Chúng Tôi</title>
+</head>
+<body>
+<nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+                <i class="fas fa-heart"></i> A4U - ALL FOR YOU
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Trang Chủ</a></li>
+                <li><a href="/about-us" class="active">Về Chúng Tôi</a></li>
+                <li><a href="#campaigns">Chiến Dịch</a></li>
+                <li><a href="#events">Sự Kiện</a></li>
+                <li><a href="#points-system">Thành Tựu</a></li>
+                <li><a href="#contact">Liên Hệ</a></li>
+                <li><a href="/login" class="btn btn-primary">Đăng Nhập</a></li>
+            </ul>
+        </div>
+    </nav>    </header>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">Câu Chuyện Của Chúng Tôi</div>
+                    <h1 class="animated-title">
+                        <span>Hành Trình</span>
+                        <span>Lan Tỏa Yêu Thương</span>
+                    </h1>
+                    <p class="hero-description">Mỗi bước đi của chúng tôi là một câu chuyện về sự sẻ chia, về những giá trị nhân văn và tình người. Khám phá hành trình của A4U và cùng chúng tôi viết tiếp những câu chuyện đẹp.</p>
+                    <div class="hero-buttons">
+                        <a href="#mission" class="btn btn-primary">
+                            <i class="fas fa-heart"></i>
+                            Tìm Hiểu Thêm
+                        </a>
+                        <a href="/login" class="btn btn-outline">
+                            <i class="fas fa-user"></i>
+                            Tham Gia Ngay
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="slideshow-container">
+                        <div class="slide fade">
+                            <img src="https://scontent.fsgn6-2.fna.fbcdn.net/v/t39.30808-6/485622589_990934126511725_3815779265025071434_n.jpg" alt="Hoạt động tình nguyện 1">
+                            <div class="slide-caption">Xuân Yêu Thương 2025</div>
+                        </div>
+                        <div class="slide fade">
+                            <img src="https://scontent.fsgn6-2.fna.fbcdn.net/v/t39.30808-6/481475727_975423578062780_1977091955504707474_n.jpg" alt="Hoạt động tình nguyện 2">
+                            <div class="slide-caption">Xây Dựng Trường Mới</div>
+                        </div>
+                        <div class="slide fade">
+                            <img src="https://scontent.fsgn12-1.fna.fbcdn.net/v/t39.30808-6/481004846_974140844857720_1125839870023113497_n.jpg" alt="Hoạt động tình nguyện 3">
+                            <div class="slide-caption">Chăm Sóc Người Cao Tuổi</div>
+                        </div>
+                        <button class="slide-btn prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slide-btn next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
+                        <div class="dots-container">
+                            <span class="dot" onclick="currentSlide(1)"></span>
+                            <span class="dot" onclick="currentSlide(2)"></span>
+                            <span class="dot" onclick="currentSlide(3)"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#ffffff" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section><section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Về Chúng Tôi</h2>
+                <p>A4U - ALL FOR YOU là nơi kết nối những trái tim nhân ái, cùng chung tay vì cộng đồng</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Hoạt Động Tình Nguyện</h3>
+                    <p>Tổ chức các hoạt động thiện nguyện, giúp đỡ cộng đồng</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Lan Tỏa Yêu Thương</h3>
+                    <p>Kết nối những tấm lòng nhân ái, chia sẻ yêu thương</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Cộng Đồng</h3>
+                    <p>Xây dựng mạng lưới tình nguyện viên rộng khắp cả nước</p>
+                </div>
+            </div>
+        </div>
+    </section>
+      <section class="section" id="mission">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sứ Mệnh & Tầm Nhìn</h2>
+                <p>Chúng tôi tin rằng mỗi hành động thiện nguyện đều có thể tạo nên sự thay đổi lớn</p>
+            </div>
+            <div class="mission-grid">
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="fas fa-heart-circle"></i>
+                    </div>
+                    <h3>Sứ Mệnh</h3>
+                    <p>Kết nối và phát triển cộng đồng thiện nguyện, lan tỏa tinh thần tương thân tương ái đến mọi miền đất nước.</p>
+                    <ul class="mission-points">
+                        <li><i class="fas fa-check-circle"></i> Xây dựng mạng lưới tình nguyện viên</li>
+                        <li><i class="fas fa-check-circle"></i> Tổ chức các hoạt động cộng đồng</li>
+                        <li><i class="fas fa-check-circle"></i> Hỗ trợ người có hoàn cảnh khó khăn</li>
+                    </ul>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="fas fa-star-of-life"></i>
+                    </div>
+                    <h3>Tầm Nhìn</h3>
+                    <p>Trở thành nền tảng thiện nguyện hàng đầu, nơi mọi người có thể dễ dàng tham gia các hoạt động ý nghĩa.</p>
+                    <ul class="mission-points">
+                        <li><i class="fas fa-check-circle"></i> Phát triển bền vững</li>
+                        <li><i class="fas fa-check-circle"></i> Mở rộng phạm vi hoạt động</li>
+                        <li><i class="fas fa-check-circle"></i> Tạo tác động xã hội tích cực</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>    <section class="section bg-light" id="achievements">
+        <div class="container">
+            <div class="section-title">
+                <h2>Thành Tựu Của Chúng Tôi</h2>
+                <p>Những con số biết nói về hành trình của A4U</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number" data-count="5000">0</div>
+                    <div class="stat-label">Tình Nguyện Viên</div>
+                    <div class="stat-description">Những trái tim nhiệt huyết</div>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="stat-number" data-count="200">0</div>
+                    <div class="stat-label">Dự Án Đã Hoàn Thành</div>
+                    <div class="stat-description">Những hành trình ý nghĩa</div>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div class="stat-number" data-count="50">0</div>
+                    <div class="stat-label">Tỉnh Thành</div>
+                    <div class="stat-description">Vươn xa khắp mọi miền</div>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="stat-number" data-count="10000">0</div>
+                    <div class="stat-label">Người Được Hỗ Trợ</div>
+                    <div class="stat-description">Nụ cười hạnh phúc</div>
+                </div>
+            </div>
+            <div class="achievement-timeline">
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3>2023</h3>
+                        <p>Khởi động dự án A4U</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <h3>2024</h3>
+                        <p>Mở rộng hoạt động toàn quốc</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3>2025</h3>
+                        <p>Đạt mốc 5000+ tình nguyện viên</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>    <section class="section" id="recent-activities">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hoạt Động Gần Đây</h2>
+                <p>Những dự án tiêu biểu của chúng tôi</p>
+            </div>
+            <div class="activities-slider">
+                <div class="activities-grid">
+                    <div class="activity-card" data-aos="fade-up">
+                        <div class="activity-image">
+                            <img src="https://scontent.fsgn6-2.fna.fbcdn.net/v/t39.30808-6/485622589_990934126511725_3815779265025071434_n.jpg" alt="Hoạt động 1">
+                            <div class="activity-date">
+                                <span class="day">15</span>
+                                <span class="month">Tháng 2</span>
+                            </div>
+                            <div class="activity-overlay">
+                                <a href="#" class="btn btn-light">Xem Chi Tiết</a>
+                            </div>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-tags">
+                                <span class="tag">Từ Thiện</span>
+                                <span class="tag">Tết</span>
+                            </div>
+                            <h3>Tết Yêu Thương</h3>
+                            <p>Mang Tết đến cho người nghèo và các em nhỏ có hoàn cảnh khó khăn</p>
+                            <div class="activity-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> TP.Cần Thơ</span>
+                                <span><i class="fas fa-users"></i> 50+ TNV</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activity-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="activity-image">
+                            <img src="https://scontent.fsgn6-2.fna.fbcdn.net/v/t39.30808-6/481475727_975423578062780_1977091955504707474_n.jpg" alt="Hoạt động 2">
+                            <div class="activity-date">
+                                <span class="day">20</span>
+                                <span class="month">Tháng 4</span>
+                            </div>
+                            <div class="activity-overlay">
+                                <a href="#" class="btn btn-light">Xem Chi Tiết</a>
+                            </div>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-tags">
+                                <span class="tag">Giáo Dục</span>
+                                <span class="tag">Xây Dựng</span>
+                            </div>
+                            <h3>Xây Dựng Trường Mới</h3>
+                            <p>Xây dựng trường học cho trẻ em vùng cao</p>
+                            <div class="activity-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Vùng Cao</span>
+                                <span><i class="fas fa-users"></i> 100+ TNV</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activity-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="activity-image">
+                            <img src="https://scontent.fsgn12-1.fna.fbcdn.net/v/t39.30808-6/481004846_974140844857720_1125839870023113497_n.jpg" alt="Hoạt động 3">
+                            <div class="activity-date">
+                                <span class="day">10</span>
+                                <span class="month">Tháng 5</span>
+                            </div>
+                            <div class="activity-overlay">
+                                <a href="#" class="btn btn-light">Xem Chi Tiết</a>
+                            </div>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-tags">
+                                <span class="tag">Y Tế</span>
+                                <span class="tag">Chăm Sóc</span>
+                            </div>
+                            <h3>Hỗ Trợ Y Tế</h3>
+                            <p>Chăm sóc sức khỏe cho người cao tuổi</p>
+                            <div class="activity-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Bệnh Viện</span>
+                                <span><i class="fas fa-users"></i> 30+ TNV</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activities-nav">
+                    <button class="prev-activities"><i class="fas fa-chevron-left"></i></button>
+                    <button class="next-activities"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>    <section class="section bg-light" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tiếng Nói Từ Cộng Đồng</h2>
+                <p>Những chia sẻ từ các tình nguyện viên và người thụ hưởng</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonials-grid">
+                    <div class="testimonial-card" data-aos="fade-right">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p>"A4U đã cho tôi cơ hội được giúp đỡ những người khó khăn. Đây là trải nghiệm tuyệt vời nhất trong cuộc đời tôi. Tôi đã học được rất nhiều điều ý nghĩa và kết bạn với nhiều người tuyệt vời."</p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Người chia sẻ">
+                            <div class="author-info">
+                                <h4>Nguyễn Thị Minh</h4>
+                                <p>Tình nguyện viên</p>
+                                <div class="author-social">
+                                    <a href="#"><i class="fab fa-facebook"></i></a>
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card" data-aos="fade-up">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p>"Nhờ có A4U, cuộc sống của chúng tôi đã thay đổi rất nhiều. Các bạn không chỉ mang đến sự giúp đỡ vật chất mà còn là động lực tinh thần quý giá. Cảm ơn tất cả các bạn!"</p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Người chia sẻ">
+                            <div class="author-info">
+                                <h4>Trần Văn Hùng</h4>
+                                <p>Người thụ hưởng</p>
+                                <span class="location"><i class="fas fa-map-marker-alt"></i> Cần Thơ</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card" data-aos="fade-left">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p>"Là một sinh viên, tôi rất vui khi được tham gia vào các hoạt động của A4U. Không chỉ giúp đỡ được người khác, tôi còn phát triển được nhiều kỹ năng mềm quan trọng."</p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Người chia sẻ">
+                            <div class="author-info">
+                                <h4>Lê Thu Hà</h4>
+                                <p>Sinh viên tình nguyện</p>
+                                <span class="university"><i class="fas fa-graduation-cap"></i> ĐH Cần Thơ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonials-nav">
+                    <button class="prev-testimonial" aria-label="Previous testimonial"><i class="fas fa-chevron-left"></i></button>
+                    <button class="next-testimonial" aria-label="Next testimonial"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Hãy Cùng Chúng Tôi Lan Tỏa Yêu Thương</h2>
+                <p>Đăng ký làm tình nguyện viên ngay hôm nay</p>
+                <a href="../login/index.html" class="btn btn-primary btn-large">
+                    <i class="fas fa-hands-helping"></i>
+                    Tham Gia Ngay
+                </a>
+            </div>
+        </div>    </section>
+    <script src="/aboutscript.js"></script>
+</body>
