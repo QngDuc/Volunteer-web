@@ -1,10 +1,17 @@
-/* Global Styles */
+/**
+ * Global Styles - Thiết lập chung
+ * ------------------------------
+ * Định nghĩa các biến và thiết lập chung cho trang chủ
+ * Sử dụng các màu sắc chính để tạo nhận diện thương hiệu
+ */
+
 :root {
-    --primary-color: #e74c3c;
-    --secondary-color: #3498db;
-    --text-color: #2c3e50;
+    --primary-color: #e74c3c;      /* Màu chủ đạo: đỏ */
+    --secondary-color: #3498db;     /* Màu phụ: xanh dương */
+    --text-color: #f48686;
     --background-color: #f9f9f9;
     --card-bg: #ffffff;
+    --success-color: #2ecc71;
 }
 
 * {
@@ -28,43 +35,56 @@ body {
 
 /* Navbar Styles */
 .navbar {
-    background-color: var(--card-bg);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.85);
+    -webkit-backdrop-filter: saturate(180%) blur(8px);
+    backdrop-filter: saturate(180%) blur(8px);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 20px;
+    height: 4rem;
+    padding: 0 20px;
 }
 
 .logo {
     color: var(--primary-color);
     text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.logo:hover {
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .nav-links {
     display: flex;
     list-style: none;
     align-items: center;
+    gap: 1rem;
 }
 
 .nav-links li a {
     color: var(--text-color);
     text-decoration: none;
     padding: 0.5rem 1rem;
-    transition: color 0.3s ease;
+    border-radius: 8px;
+    transition: all 0.2s ease;
 }
 
 .nav-links li a:hover {
     color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 /* User Menu Styles */
@@ -158,7 +178,15 @@ body {
     font-size: 2rem;
 }
 
-/* Campaign Cards */
+/**
+ * Campaign Cards - Thẻ chiến dịch
+ * ------------------------------
+ * Hiển thị các chiến dịch từ thiện đang diễn ra
+ * Sử dụng CSS Grid với auto-fit để layout linh hoạt
+ * Responsive từ desktop xuống mobile tự động
+ * Thêm hiệu ứng hover để tăng tính tương tác
+ */
+
 .campaigns-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -212,7 +240,15 @@ body {
     border-radius: 4px;
 }
 
-/* Event Cards */
+/**
+ * Event Cards - Thẻ sự kiện
+ * ------------------------------
+ * Hiển thị các sự kiện sắp diễn ra
+ * Layout dạng grid với các thẻ linh hoạt
+ * Mỗi thẻ có phần hiển thị ngày và nội dung
+ * Hỗ trợ hình ảnh và thông tin chi tiết
+ */
+
 .events-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -256,7 +292,14 @@ body {
     margin-bottom: 1rem;
 }
 
-/* Points System */
+/**
+ * Points System - Hệ thống điểm
+ * ------------------------------
+ * Hiển thị điểm số và thành tích của người dùng
+ * Sử dụng Grid layout để hiển thị các thẻ điểm
+ * Thêm hiệu ứng và animation để tăng tính tương tác
+ */
+
 .points-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -296,7 +339,15 @@ body {
     opacity: 0.9;
 }
 
-/* Buttons */
+/**
+ * Buttons - Nút bấm
+ * ------------------------------
+ * Các style chung cho nút bấm trong toàn bộ website
+ * Hỗ trợ các trạng thái: default, hover, active, disabled
+ * Các biến thể: primary, secondary, outline
+ * Hiệu ứng chuyển động mượt mà khi tương tác
+ */
+
 .btn {
     display: inline-block;
     padding: 0.75rem 1.5rem;
@@ -318,7 +369,57 @@ body {
     transform: translateY(-2px);
 }
 
-/* Footer */
+/* Button States */
+.btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background: var(--secondary-color);
+}
+
+.btn.registered {
+    background: var(--success-color);
+    pointer-events: none;
+}
+
+.btn.redeemed {
+    background: var(--success-color);
+    pointer-events: none;
+}
+
+.btn-redeem:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background: var(--secondary-color);
+}
+
+/* Loading State */
+.btn[disabled]:after {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 8px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/**
+ * Footer - Chân trang
+ * ------------------------------
+ * Hiển thị thông tin liên hệ và links hữu ích
+ * Layout grid đa cột cho desktop
+ * Chuyển sang layout 1 cột cho mobile
+ * Bao gồm social links và copyright
+ */
+
 .footer {
     background: #2c3e50;
     color: white;
@@ -472,35 +573,273 @@ body {
     cursor: not-allowed;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .navbar .container {
+/* Toast Notification */
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+.toast {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    margin: 8px;
+    animation: slideUp 0.3s ease-out forwards;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.toast i {
+    font-size: 1.2em;
+}
+
+.toast.success {
+    background: rgba(46, 204, 113, 0.9);
+}
+
+.toast.info {
+    background: rgba(52, 152, 219, 0.9);
+}
+
+.toast.warning {
+    background: rgba(241, 196, 15, 0.9);
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Mobile Menu Styles */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+    z-index: 100;
+}
+
+.mobile-menu-btn span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--text-color);
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-btn span:first-child {
+    top: 0;
+}
+
+.mobile-menu-btn span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.mobile-menu-btn span:last-child {
+    bottom: 0;
+}
+
+.mobile-menu-btn.active span:first-child {
+    transform: rotate(45deg);
+    top: 14px;
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.active span:last-child {
+    transform: rotate(-45deg);
+    bottom: 14px;
+}
+
+/* Prevent scrolling when menu is open */
+body.menu-open {
+    overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 64px);
+        background: rgba(255, 255, 255, 0.95);
+        -webkit-backdrop-filter: saturate(180%) blur(8px);
+        backdrop-filter: saturate(180%) blur(8px);
+        padding: 2rem;
         flex-direction: column;
+        align-items: flex-start;
+        overflow-y: auto;
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(-100%);
+    }
+
+    .nav-links.active {
+        display: flex;
+        transform: translateX(0);
+    }
+
+    .nav-links li {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 1rem;
+        text-align: left;
+        border-radius: 8px;
+    }
+
+    .nav-links li a:hover {
+        background: rgba(var(--primary-color-rgb), 0.1);
+    }
+
+    .user-menu {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .user-profile {
+        justify-content: flex-start;
         padding: 1rem;
     }
-    
-    .nav-links {
-        margin-top: 1rem;
-        flex-wrap: wrap;
+
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        margin-top: 0.5rem;
+        background: rgba(var(--primary-color-rgb), 0.05);
+        border-radius: 8px;
+    }
+
+    .dropdown-menu a {
+        padding: 1rem;
+        margin: 0.25rem 0;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+    .nav-links a {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .nav-links a:active {
+        background: rgba(var(--primary-color-rgb), 0.1);
+    }
+}
+
+/* Modern Container Padding */
+@media screen and (max-width: 576px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .section {
+        padding: 2rem 0;
+    }
+
+    .campaign-card,
+    .event-card,
+    .rewards-card {
+        border-radius: 0;
+        margin: 0 -1rem;
+    }
+
+    .event-content,
+    .campaign-content {
+        padding: 1rem;
+    }
+
+    .btn {
+        width: 100%;
         justify-content: center;
     }
-    
-    .hero {
-        padding-top: 9rem;
+
+    .stat-card {
+        padding: 1rem;
     }
-    
-    .user-stats {
-        grid-template-columns: 1fr;
+
+    .simulate-btn {
+        padding: 0.75rem 1rem;
+        right: 1rem;
+        bottom: 1rem;
     }
-    
-    .event-card {
-        flex-direction: column;
+
+    .footer {
+        padding: 2rem 1rem;
     }
-    
+}
+
+/* Device-specific optimizations */
+@media screen and (max-width: 360px) {
+    .welcome-message h1 {
+        font-size: 1.25rem;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+    }
+
     .event-date {
         padding: 0.5rem;
-        flex-direction: row;
-        justify-content: center;
-        gap: 0.5rem;
+    }
+
+    .event-date .day {
+        font-size: 1.5rem;
+    }
+}
+
+/* High DPI Screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .card-shadow {
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .navbar {
+        background: rgba(17, 24, 39, 0.85);
+    }
+
+    .nav-links li a {
+        color: var(--light-color);
+    }
+
+    .nav-links.active {
+        background: rgba(17, 24, 39, 0.95);
+    }
+
+    .logo:hover,
+    .nav-links li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
     }
 }

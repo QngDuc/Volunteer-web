@@ -8,11 +8,53 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
+        (function() {
+            try {
+                emailjs.init("GmfHkja59lYRbR2u6");
+                console.log('EmailJS initialized successfully in home.ejs');
+                
+                // Global email configuration
+                window.EMAIL_CONFIG = {
+                    serviceId: "service_pss5hzt",
+                    userId: "GmfHkja59lYRbR2u6",
+                    templates: {
+                        activityNotification: {
+                            templateId: "template_m659rvn",
+                            subject: "Thông báo hoạt động mới - A4U"
+                        },
+                        rewardConfirmation: {
+                            templateId: "template_jah9zcf",
+                            subject: "Xác nhận đổi thưởng thành công - A4U"
+                        },
+                        eventRegistration: {
+                            templateId: "template_m659rvn",
+                            subject: "Xác nhận đăng ký sự kiện - A4U"
+                        }
+                    }
+                };
+                
+                // Verify configuration
+                if (!window.EMAIL_CONFIG.serviceId || !window.EMAIL_CONFIG.userId) {
+                    throw new Error('Missing required EmailJS configuration');
+                }
+            } catch (error) {
+                console.error('EmailJS initialization error:', error);
+                // Add visual feedback for admins/developers
+                if (process.env.NODE_ENV === 'development') {
+                    alert('Email service initialization failed. Check console for details.');
+                }
+            }
+        })();
     </script>
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <a href="/home" class="logo">
                 <i class="fas fa-heart"></i> A4U - ALL FOR YOU
             </a>

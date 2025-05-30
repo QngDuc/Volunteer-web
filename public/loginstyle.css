@@ -156,3 +156,104 @@ button:hover {
 .register-link a:hover {
     color: var(--primary-color);
 }
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .login-box {
+        padding: 30px;
+    }
+
+    .login-box h2 {
+        font-size: 1.75em;
+        margin-bottom: 25px;
+    }
+
+    .input-group {
+        margin-bottom: 25px;
+    }
+
+    .input-group input {
+        font-size: 15px;
+    }
+
+    .input-group label {
+        font-size: 15px;
+    }
+
+    .remember-forgot {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .login-container {
+        padding: 15px;
+    }
+
+    .login-box {
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    .login-box h2 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    .input-group {
+        margin-bottom: 20px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    .register-link {
+        font-size: 13px;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .login-box {
+        background: rgba(26, 27, 75, 0.95);
+    }
+
+    .login-box h2 {
+        color: var(--light-color);
+    }
+
+    .input-group input {
+        color: var(--light-color);
+    }
+
+    .input-group label {
+        color: #999;
+    }
+
+    .remember-forgot label,
+    .register-link {
+        color: var(--light-color);
+    }
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: none;
+    }
+
+    .login-box {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+
+    button,
+    .remember-forgot,
+    .register-link {
+        display: none;
+    }
+}

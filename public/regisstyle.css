@@ -177,3 +177,152 @@ button:hover {
 .shake {
     animation: shake 0.5s ease-in-out;
 }
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .login-container {
+        padding: 15px;
+    }
+
+    .login-box {
+        padding: 30px;
+    }
+
+    .login-box h2 {
+        font-size: 1.75em;
+        margin-bottom: 25px;
+    }
+
+    .input-group {
+        margin-bottom: 25px;
+    }
+
+    .input-group input {
+        font-size: 15px;
+    }
+
+    .input-group label {
+        font-size: 15px;
+    }
+
+    .input-group i {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .login-container {
+        padding: 10px;
+    }
+
+    .login-box {
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    .login-box h2 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    .input-group {
+        margin-bottom: 20px;
+    }
+
+    .input-group input {
+        font-size: 14px;
+        padding-left: 25px;
+    }
+
+    .input-group label {
+        font-size: 14px;
+        left: 25px;
+    }
+
+    .input-group i {
+        font-size: 13px;
+        top: 13px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    .login-link {
+        font-size: 13px;
+    }
+}
+
+/* Portrait devices */
+@media screen and (max-height: 600px) {
+    body {
+        align-items: flex-start;
+    }
+
+    .login-container {
+        padding-top: 20px;
+    }
+
+    .login-box {
+        margin: 10px 0;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .login-box {
+        background: rgba(26, 27, 75, 0.95);
+    }
+
+    .login-box h2 {
+        color: var(--light-color);
+    }
+
+    .input-group input {
+        color: var(--light-color);
+    }
+
+    .input-group label,
+    .input-group i {
+        color: #999;
+    }
+
+    .login-link {
+        color: var(--light-color);
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .login-box {
+        background: white;
+        border: 2px solid black;
+    }
+
+    .input-group input {
+        border-bottom: 2px solid black;
+    }
+
+    button {
+        background: black;
+        color: white;
+    }
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: none;
+    }
+
+    .login-box {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+
+    button,
+    .login-link {
+        display: none;
+    }
+}

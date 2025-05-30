@@ -1,77 +1,147 @@
-/* Modern Color Scheme and Variables */
+/**
+ * Modern Color Scheme and Variables
+ * ------------------------------
+ * Thiết lập các biến màu sắc và các giá trị cơ bản cho toàn bộ website
+ */
+
 :root {
-    --primary-color: #E8425C;
-    --primary-light: #FF8484;
-    --secondary-color: #6C63FF;
-    --gradient-1: linear-gradient(135deg, #E8425C 0%, #FF8484 100%);
-    --gradient-2: linear-gradient(135deg, #6C63FF 0%, #A393EB 100%);
-    --dark-color: #1A1B4B;
-    --light-color: #F8F9FA;
-    --accent-color: #FFB037;
-    --text-color: #2B2D42;
-    --card-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    --card-shadow-hover: 0 30px 60px rgba(0,0,0,0.15);
-    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --border-radius: 20px;
+    /* Màu chính - Tông màu đỏ cam ấm áp phù hợp với chủ đề từ thiện */
+    --primary-color: #FF5733;    /* Màu chính */
+    --primary-light: #FF8D6B;    /* Màu chính nhạt hơn cho hover và highlight */
+    --primary-dark: #CC3B1B;     /* Màu chính đậm hơn cho các trạng thái active */
+    
+    /* Secondary Colors - Complementary Blue */
+    --secondary-color: #2E86AB;
+    --secondary-light: #5AA7C7;
+    --secondary-dark: #1B678F;
+    
+    /* Accent Colors - Golden Yellow */
+    --accent-color: #FFC300;
+    --accent-light: #FFD54F;
+    --accent-dark: #FFA000;
+    
+    /* Neutral Colors */
+    --dark-color: #111827;
+    --light-color: #F9FAFB;
+    --text-color: #374151;
+    --text-light: #6B7280;
+    --border-color: #E5E7EB;
+    
+    /* Gradients */
+    --gradient-1: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    --gradient-2: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-light) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    
+    /* Effects */
+    --transition-fast: all 0.2s ease;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Border Radius */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+    --radius-full: 9999px;
+    
+    /* Spacing */
+    --container-padding: 2rem;
+    --section-spacing: 6rem;
+    --component-spacing: 2rem;
 }
 
-* {
+/**
+ * Reset và Thiết lập cơ bản
+ * ------------------------------
+ * Reset lại các giá trị mặc định của trình duyệt
+ * và thiết lập các style cơ bản cho website
+ */
+
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 html {
+    font-size: 16px;
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
 }
 
 body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
+    background-color: var(--light-color);
     overflow-x: hidden;
 }
 
+/* Layout */
 .container {
-    max-width: 1200px;
+    width: 100%;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 var(--container-padding);
 }
 
-/* Navigation */
+/**
+ * Navigation - Thanh điều hướng
+ * ------------------------------
+ * Thiết kế thanh điều hướng với hiệu ứng trong suốt và blur
+ * Sử dụng position: fixed để luôn hiển thị ở đầu trang
+ */
+
 .navbar {
-    background: rgba(255, 255, 255, 0.8);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    backdrop-filter: blur(20px) saturate(180%);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    border-bottom: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.85);
+    -webkit-backdrop-filter: saturate(180%) blur(8px);
+    backdrop-filter: saturate(180%) blur(8px);
+    box-shadow: none;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    padding: 1.2rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 20px;
+    height: 4rem;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .logo {
+    position: relative;
     color: var(--primary-color);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.75rem;
+    padding: 0.5rem;
+    border-radius: var(--radius-md);
+    transition: var(--transition-fast);
+}
+
+.logo:hover {
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     list-style: none;
     align-items: center;
 }
@@ -80,73 +150,113 @@ body {
     color: var(--text-color);
     text-decoration: none;
     font-weight: 500;
-    transition: var(--transition);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    transition: var(--transition-fast);
 }
 
 .nav-links a:hover {
     color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Hero Section */
+/**
+ * Hero Section - Phần giới thiệu chính
+ * ------------------------------
+ * Thiết kế phần banner chính với gradient và hiệu ứng
+ * Sử dụng các lớp pseudo-elements để tạo các hiệu ứng nền
+ */
+
 .hero {
-    padding-top: 5rem;
-    background: var(--gradient-1);
     position: relative;
     min-height: 100vh;
+    padding: 8rem 0 6rem;    background: linear-gradient(135deg, 
+        rgba(255, 87, 51, 0.1) 0%,
+        rgba(255, 141, 107, 0.1) 100%);
     display: flex;
     align-items: center;
     overflow: hidden;
 }
 
-.hero::before {
+.hero::before,
+.hero::after {
     content: '';
     position: absolute;
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.1)"/></svg>') 0 0/50px 50px;
-    opacity: 0.5;
-    animation: moveBackground 20s linear infinite;
+    pointer-events: none;
 }
 
+.hero::before {
+    background: radial-gradient(circle at 50% 0%, 
+        rgba(79, 70, 229, 0.1) 0%, 
+        rgba(129, 140, 248, 0.05) 50%,
+        transparent 100%);
+    transform: translateY(-50%);
+}
+
+.hero::after {
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 50L0 100h100z' fill='rgba(79, 70, 229, 0.03)'/%3E%3C/svg%3E") 0 0/50px 50px;
+    opacity: 0.5;
+    animation: moveBackground 30s linear infinite;
+}
+
+/* Hero Content */
 .hero-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
 .hero-badge {
-    display: inline-block;
-    background: rgba(37, 99, 235, 0.1);
-    color: #F8F9FA;
+    display: inline-flex;
+    align-items: center;    background: rgba(255, 87, 51, 0.1);
+    color: var(--primary-color);
     padding: 0.5rem 1rem;
-    border-radius: 2rem;
-    font-weight: 500;
-    margin-bottom: 1.5rem;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 2rem;
+    gap: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+}
+
+.hero-badge i {
+    font-size: 1rem;
 }
 
 .animated-title {
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 800;
-    line-height: 1.2;
+    line-height: 1.1;
     margin-bottom: 1.5rem;
-    color: var(--text-color);
+    color: var(--dark-color);
+    letter-spacing: -0.02em;
 }
 
 .animated-title span {
     display: block;
     opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.8s forwards;
+    transform: translateY(2rem);
+    animation: titleFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .animated-title span:nth-child(2) {
     animation-delay: 0.2s;
 }
 
-@keyframes fadeInUp {
+@keyframes titleFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(2rem);
+    }
     to {
         opacity: 1;
         transform: translateY(0);
@@ -154,9 +264,11 @@ body {
 }
 
 .hero-description {
-    font-size: 1.25rem;
-    color: var(--light-text);
-    margin-bottom: 2rem;
+    font-size: clamp(1.125rem, 2vw, 1.25rem);
+    color: var(--text-light);
+    margin-bottom: 2.5rem;
+    max-width: 36rem;
+    line-height: 1.8;
 }
 
 .hero-buttons {
@@ -166,40 +278,60 @@ body {
 }
 
 .btn {
+    position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 0.8rem;
-    padding: 0.8rem 2rem;
-    border-radius: 50px;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.75rem;
+    border-radius: var(--radius-full);
     font-weight: 600;
-    transition: var(--transition);
+    font-size: 1rem;
     text-decoration: none;
-    border: none;
+    border: 2px solid transparent;
     cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}
+
+.btn i {
+    font-size: 1.25rem;
+    transition: transform 0.2s ease;
+}
+
+.btn:hover i {
+    transform: translateX(4px);
 }
 
 .btn-primary {
-    background: var(--gradient-2);
+    background: var(--primary-color);
     color: white;
-    box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4);
-    color: #F8F9FA;
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
 }
 
 .btn-outline {
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
-    background: transparent;
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .btn-outline:hover {
-    background: var(--gradient-1);
+    background: var(--primary-color);
     color: white;
-    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.2);
 }
 
 .hero-stats {
@@ -238,14 +370,22 @@ body {
 }
 
 /* Sections */
+/**
+ * Sections - Các phần chung
+ * ------------------------------
+ * Định dạng chung cho tất cả các section trong trang
+ * Sử dụng padding và background xen kẽ để tạo sự phân biệt
+ */
 .section {
     padding: 6rem 0;
 }
 
-.section:nth-child(even) {
-    background: var(--section-bg);
-}
-
+/**
+ * Section Headers - Tiêu đề các phần
+ * ------------------------------
+ * Định dạng cho phần tiêu đề của mỗi section
+ * Sử dụng căn giữa và khoảng cách để tạo sự nổi bật
+ */
 .section-title {
     text-align: center;
     margin-bottom: 4rem;
@@ -262,367 +402,499 @@ body {
     font-size: 1.1rem;
 }
 
-/* Features Grid */
+/**
+ * Features Grid - Lưới tính năng
+ * ------------------------------
+ * Hiển thị các tính năng quan trọng của website
+ * Sử dụng CSS Grid với auto-fit để tự động điều chỉnh số cột
+ * Mỗi card có hiệu ứng hover và animation riêng
+ */
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
 
+/**
+ * Feature Cards - Thẻ tính năng
+ * ------------------------------
+ * Thiết kế card hiển thị từng tính năng
+ * - Sử dụng backdrop-filter để tạo hiệu ứng kính mờ
+ * - Có animation khi hover
+ * - Border gradient ở phía trên
+ */
 .feature-card {
-    background: var(--background);
-    padding: 2rem;
-    border-radius: 1rem;
+    position: relative;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 2.5rem 2rem;
+    border-radius: var(--radius-lg);
     text-align: center;
     transition: var(--transition);
     border: 1px solid var(--border-color);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
 }
 
 .feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: transparent;
 }
 
 .feature-card i {
     font-size: 2.5rem;
     color: var(--primary-color);
     margin-bottom: 1.5rem;
+    display: inline-block;
+    padding: 1rem;
+    border-radius: var(--radius-lg);
+    background: rgba(79, 70, 229, 0.1);
+    transition: var(--transition);
+}
+
+.feature-card:hover i {
+    transform: scale(1.1) rotate(-5deg);
+    color: var(--primary-dark);
 }
 
 .feature-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
     margin-bottom: 1rem;
-    color: var(--text-color);
+    color: var(--dark-color);
 }
 
 .feature-card p {
-    color: var(--light-text);
+    color: var(--text-light);
+    line-height: 1.7;
 }
 
 /* Project Grid */
+/**
+ * Project Grid - Lưới dự án
+ * ------------------------------
+ * Hiển thị các dự án tình nguyện
+ * Sử dụng CSS Grid với auto-fit để tạo layout linh hoạt
+ * Mỗi card có hiệu ứng hover và gradient overlay
+ */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
 }
 
+/**
+ * Project Cards - Thẻ dự án
+ * ------------------------------
+ * Thiết kế card hiển thị thông tin dự án
+ * - Sử dụng isolation để kiểm soát hiệu ứng stack
+ * - Có overlay gradient khi hover
+ * - Transform và shadow tạo hiệu ứng nổi
+ */
 .project-card {
+    position: relative;
     background: white;
-    border-radius: var(--border-radius);
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: var(--card-shadow);
+    box-shadow: var(--shadow-md);
     transition: var(--transition);
-    transform-style: preserve-3d;
     transform: translateZ(0);
+    isolation: isolate;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    mix-blend-mode: overlay;
 }
 
 .project-card:hover {
-    transform: translateY(-15px) rotateX(5deg);
-    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-12px);
+    box-shadow: var(--shadow-lg);
+}
+
+.project-card:hover::before {
+    opacity: 0.1;
 }
 
 .project-card img {
     width: 100%;
-    height: 200px;
+    height: 240px;
     object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
 }
 
 .project-card .content {
-    padding: 1.5rem;
+    position: relative;
+    padding: 2rem;
+    background: white;
 }
 
 .project-card h3 {
-    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--dark-color);
 }
 
 .project-card p {
-    color: var(--light-text);
-    margin-bottom: 1rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.project-card .tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.project-card .tag {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    background: rgba(79, 70, 229, 0.1);
+    color: var(--primary-color);
+    font-weight: 500;
 }
 
 /* Events Section */
+/**
+ * Events Section - Phần sự kiện
+ * ------------------------------
+ * Hiển thị danh sách các sự kiện tình nguyện
+ * Thiết kế responsive với grid tự động điều chỉnh
+ */
 .events-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2.5rem;
 }
 
+/**
+ * Event Cards - Thẻ sự kiện
+ * ------------------------------
+ * Card hiển thị thông tin chi tiết sự kiện
+ * - Có hiển thị ngày tháng nổi bật
+ * - Hình ảnh với hiệu ứng zoom khi hover
+ * - Thông tin địa điểm và thời gian
+ */
 .event-card {
+    position: relative;
     background: white;
-    border-radius: var(--border-radius);
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: var(--card-shadow);
+    box-shadow: var(--shadow-md);
     transition: var(--transition);
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
 }
 
 .event-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-light);
 }
 
 .event-date {
-    background: var(--primary-color);
-    color: white;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--primary-color);
     padding: 1rem;
+    border-radius: var(--radius-md);
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-width: 100px;
+    min-width: 80px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(79, 70, 229, 0.2);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    z-index: 1;
 }
 
 .event-date .day {
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.event-date .month {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
 }
 
 .event-content {
-    padding: 1.5rem;
+    padding: 0;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-image-container {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
 }
 
 .event-content img {
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
-    border-radius: 0.5rem;
-    margin-bottom: 1rem;
+    transition: transform 0.5s ease;
+}
+
+.event-card:hover img {
+    transform: scale(1.05);
+}
+
+.event-info {
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .event-content h3 {
-    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+    line-height: 1.4;
+}
+
+.event-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
 }
 
 .event-location,
 .event-time {
-    color: var(--light-text);
-    margin-bottom: 0.5rem;
+    color: var(--text-light);
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.75rem;
+    font-size: 0.875rem;
 }
 
-/* Points and Rewards System */
-.points-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.points-card, .rewards-card {
-    background: white;
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
-    transition: var(--transition);
-}
-
-.rewards-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.rewards-list li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem;
-    background: var(--light-color);
-    border-radius: var(--border-radius);
-    transition: var(--transition);
-}
-
-.rewards-list li:hover {
-    transform: translateX(10px);
-    box-shadow: var(--card-shadow);
-}
-
-.reward-info {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-    flex: 1;
-}
-
-.reward-info img {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-}
-
-.reward-details {
-    flex: 1;
-}
-
-.reward-name {
-    font-weight: 600;
-    color: var(--dark-color);
-    display: block;
-    margin-bottom: 0.3rem;
-}
-
-.reward-description {
-    font-size: 0.9rem;
-    color: var(--text-color);
-    opacity: 0.8;
-    display: block;
-    margin-bottom: 0.8rem;
-}
-
-.reward-progress {
-    width: 100%;
-}
-
-.progress-text {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-}
-
-.points-needed {
+.event-location i,
+.event-time i {
     color: var(--primary-color);
-    font-weight: 600;
-}
-
-.points-have {
-    color: var(--text-color);
-    opacity: 0.7;
-}
-
-.progress-bar {
-    width: 100%;
-    height: 6px;
-    background: rgba(0,0,0,0.1);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.progress {
-    height: 100%;
-    background: var(--gradient-2);
-    border-radius: 10px;
-    transition: width 0.3s ease;
-}
-
-.btn-redeem {
-    padding: 0.8rem 1.5rem;
-    border-radius: 50px;
-    border: none;
-    background: var(--gradient-2);
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.btn-redeem:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
-}
-
-.btn-redeem:disabled {
-    background: #ccc;
-    cursor: not-allowed;
-    opacity: 0.7;
+    font-size: 1.25rem;
 }
 
 /* Contact Section */
+/**
+ * Contact Section - Phần liên hệ
+ * ------------------------------
+ * Hiển thị form liên hệ và thông tin liên lạc
+ * Sử dụng gradient và backdrop-filter cho hiệu ứng hiện đại
+ */
+.contact-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle at 100% 0%, 
+        rgba(79, 70, 229, 0.1) 0%, 
+        rgba(129, 140, 248, 0.05) 50%,
+        transparent 100%);
+    pointer-events: none;
+}
+
+/**
+ * Contact Grid - Lưới liên hệ
+ * ------------------------------
+ * Layout 2 cột cho thông tin liên hệ và form
+ * Thiết kế responsive với tỷ lệ 1:1.5
+ */
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr 1.5fr;
     gap: 4rem;
+    position: relative;
+    z-index: 1;
 }
 
-.contact-info {
-    display: grid;
-    gap: 2rem;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.contact-item i {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-}
-
+/**
+ * Contact Form - Form liên hệ
+ * ------------------------------
+ * Form với hiệu ứng glassmorphism
+ * Tối ưu UX với các hiệu ứng focus và hover
+ */
 .form-container {
-    background: white;
+    background: rgba(255, 255, 255, 0.9);
     padding: 3rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
 }
 
 .form-group {
     margin-bottom: 1.5rem;
 }
 
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--dark-color);
+}
+
 .form-group input,
 .form-group textarea {
-    border: 2px solid var(--light-color);
-    border-radius: 10px;
-    padding: 1rem;
     width: 100%;
-    transition: var(--transition);
+    padding: 0.875rem 1.25rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: white;
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: var(--transition-fast);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: var(--secondary-color);
-    box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.1);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
     outline: none;
 }
 
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-light);
+}
+
+/* Footer */
 /* Footer */
 .footer {
+    position: relative;
     background: var(--dark-color);
     color: white;
-    padding: 5rem 0 2rem;
+    padding: 6rem 0 2rem;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 0% 0%, 
+        rgba(79, 70, 229, 0.15) 0%, 
+        transparent 50%);
+    pointer-events: none;
 }
 
 .footer-content {
+    position: relative;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: 2fr repeat(3, 1fr);
     gap: 4rem;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 }
 
 .footer-col h4 {
     color: white;
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--primary-color);
 }
 
 .footer-col.about p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     opacity: 0.8;
+    line-height: 1.8;
 }
 
 .footer-col ul {
     list-style: none;
-}
-
-.footer-col ul li {
-    margin-bottom: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .footer-col ul li a {
-    color: white;
-    opacity: 0.8;
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
-    transition: var(--transition);
+    transition: var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .footer-col ul li a:hover {
+    color: white;
+    transform: translateX(4px);
+}
+
+.footer-col ul li a i {
+    font-size: 0.75rem;
+    opacity: 0;
+    transition: var(--transition-fast);
+}
+
+.footer-col ul li a:hover i {
     opacity: 1;
-    padding-left: 5px;
 }
 
 .social-links {
@@ -631,35 +903,39 @@ body {
 }
 
 .social-links a {
-    background: var(--gradient-2);
+    background: rgba(255, 255, 255, 0.1);
     color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-full);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-right: 1rem;
     transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .social-links a:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+    transform: translateY(-4px);
+    background: var(--primary-color);
+    border-color: var(--primary-light);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
 }
 
 .footer-bottom {
+    position: relative;
     padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .footer-bottom .copyright {
-    opacity: 0.8;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
 }
 
 .footer-links {
@@ -668,18 +944,83 @@ body {
 }
 
 .footer-links a {
-    color: white;
-    opacity: 0.8;
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
-    transition: var(--transition);
+    font-size: 0.875rem;
+    transition: var(--transition-fast);
 }
 
 .footer-links a:hover {
-    opacity: 1;
+    color: white;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
+/**
+ * Animations - Hiệu ứng chuyển động
+ * ------------------------------
+ * Các keyframes animation cho các hiệu ứng
+ */
+@keyframes pointsChange {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+
+    .hero-content {
+        gap: 3rem;
+    }
+
+    .animated-title {
+        font-size: 3rem;
+    }
+
+    .hero-image img {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        max-width: 720px;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image {
+        grid-row: 1;
+        margin: 0 auto;
+        max-width: 80%;
+    }
+
+    .animated-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+    }
+}
+
+/* Tablet */
+@media screen and (max-width: 768px) {
+    .container {
+        max-width: 540px;
+        padding: 0 1.5rem;
+    }
+
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
@@ -693,92 +1034,92 @@ body {
         justify-content: center;
     }
 
-    .stat-item {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 576px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .section {
+        padding: 4rem 0;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
         text-align: center;
     }
-    
-    .nav-links {
+
+    .footer-links {
+        justify-content: center;
+    }
+}
+
+/* Tablet and iPad specific adjustments */
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .hero-content {
+        padding: 2rem 0;
+    }
+
+    .hero-image {
+        max-width: 70%;
+    }
+}
+
+/* Support for high DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .hero::before {
+        background-size: 25px 25px;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .navbar {
+        background: rgba(17, 24, 39, 0.85);
+    }
+
+    .nav-links a {
+        color: var(--light-color);
+    }
+
+    .nav-links.active {
+        background: rgba(17, 24, 39, 0.9);
+    }
+}
+
+/* Print styles */
+@media print {
+    .navbar {
+        position: relative;
+        box-shadow: none;
+    }
+
+    .hero::before {
         display: none;
     }
 
-    .animate-title {
-        font-size: 2.5rem;
+    .hero-buttons,
+    .mobile-menu-btn {
+        display: none;
     }
-}
 
-/* Animations */
-@keyframes moveBackground {
-    from { background-position: 0 0; }
-    to { background-position: 100% 100%; }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
+    .animated-title span {
         opacity: 1;
-        transform: translateY(0);
+        transform: none;
+        animation: none;
     }
-}
-
-.feature-card i {
-    animation: float 3s ease-in-out infinite;
-}
-
-.simulate-btn {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    background: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 1rem;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    z-index: 1000;
-}
-
-.simulate-btn:hover {
-    transform: scale(1.1);
-}
-
-/* Animation for points change */
-@keyframes pointsChange {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.2);
-        color: var(--primary-color);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-.points-changing {
-    animation: pointsChange 0.5s ease;
-}
-
-/* Reward redemption animation */
-@keyframes redeemSuccess {
-    0% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(-10px);
-        opacity: 0.5;
-    }
-    100% {
-        transform: translateX(-20px);
-        opacity: 0;
-    }
-}
-
-.redeeming {
-    animation: redeemSuccess 0.5s ease forwards;
 }
